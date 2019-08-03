@@ -5,7 +5,9 @@
   "license": "MIT",
   "devDependencies": {
     "chai-dom": "^1.8.1",
-    "e2e_training_wheels": "^0.0.36"
+    "e2e_training_wheels": "^0.0.36",
+    "mockery": "^2.1.0",
+    "sinon": "^7.3.2"
   },
   "scripts": {
     "test": "npm run features && npm run specs",
