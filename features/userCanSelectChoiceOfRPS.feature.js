@@ -81,7 +81,6 @@ context('RPS Game', () => {
     it('is displayed', async () => {
       await browser.clickOnButton('button[id="scissors"]')
       let content = await browser.getContent("section[id='results']")
-      console.log(content)
       let possibleResults = /(?:Player Wins!|Computer Wins!|It is a TIE!)/
       expect(possibleResults.test(content)).to.equal(true)
     });
