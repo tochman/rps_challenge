@@ -1,7 +1,11 @@
-function Player(args) {
-  
-  this.callSign = args.callSign 
-  this.sayFuck = () => {
+class Player {
+
+  constructor(args) {
+    this.callSign = args.callSign 
+
+  }
+
+  sayFuck = () => {
     return 'Fuck'
   }
 }
