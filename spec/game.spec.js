@@ -1,11 +1,11 @@
 require('../spec.helper')
 
 describe("Game", () => {
-  let player = new global.Player({ callSign: 'Thomas' })
-  let computer = new Player({ callSign: 'Computer' })
-  let game = new Game()
-  before(() => {
-
+  let player, computer, game
+  beforeEach(() => {
+    player = new Player({callSign: 'Thomas'})
+    computer = new Player({callSign: 'Computer'})
+    game = new Game()
   });
 
   it('rock beats scissors', () => {
@@ -14,29 +14,30 @@ describe("Game", () => {
     expect(game.play(player, computer)).to.equal("Thomas Wins!");
   })
   it('scissors beats paper', () => {
-    player.currentChoice = "scissors"
-    computer.currentChoice = "paper"
-    expect(game.play(player, computer)).to.equal(player);
+    // console.log(JSON.stringify(player))
+    player.currentChoice = "Scissors"
+    computer.currentChoice = "Paper"
+    expect(game.play(player, computer)).to.equal("Thomas Wins!");
   })
   it('paper beats rock', () => {
-    player.currentChoice = "paper"
-    computer.currentChoice = "rock"
-    expect(game.play(player, computer)).to.equal(player);
+    player.currentChoice = "Paper"
+    computer.currentChoice = "Rock"
+    expect(game.play(player, computer)).to.equal("Thomas Wins!");
   })
   it('rock beats scissors', () => {
-    player.currentChoice = "scissors"
-    computer.currentChoice = "rock"
-    expect(game.play(player, computer)).to.equal(computer);
+    player.currentChoice = "Scissors"
+    computer.currentChoice = "Rock"
+    expect(game.play(player, computer)).to.equal("Computer Wins!");
   })
   it('scissors beats paper', () => {
-    player.currentChoice = "paper"
-    computer.currentChoice = "scissors"
-    expect(game.play(player, computer)).to.equal(computer);
+    player.currentChoice = "Paper"
+    computer.currentChoice = "Scissors"
+    expect(game.play(player, computer)).to.equal("Computer Wins!");
   })
   it('paper beats rock', () => {
-    player.currentChoice = "rock"
-    computer.currentChoice = "paper"
-    expect(game.play(player, computer)).to.equal(computer);
+    player.currentChoice = "Rock"
+    computer.currentChoice = "Paper"
+    expect(game.play(player, computer)).to.equal("Computer Wins!");
   })
 
 })

@@ -1,14 +1,8 @@
-class Player {
-  constructor(args) {
-    console.log(args)
-    this.callSign = args.callSign 
-  }
-}
+
 
 class Game {
   play(playerOne, playerTwo) {
     let results
-    console.log(JSON.stringify(playerOne))
     const [playerOneMessage, playerTwoMessage, tieMessage] = [`${playerOne.callSign} Wins!`, `${playerTwo.callSign} Wins!`, 'It is a TIE!']
     switch ([playerOne.currentChoice, playerTwo.currentChoice].join(' ')) {
       case ['Rock', 'Scissors'].join(' '):
@@ -46,9 +40,6 @@ class Game {
   }
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = Player;
-}
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = Game;
