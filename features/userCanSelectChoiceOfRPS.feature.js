@@ -84,6 +84,20 @@ context('RPS Game', () => {
       let possibleResults = /(?:Player Wins!|Computer Wins!|It is a TIE!)/
       expect(possibleResults.test(content)).to.equal(true)
     });
+
+    it('Right message is being displayed', async () => {
+      await browser.clickOnButton('button[id="scissors"]')
+      let content = await browser.getContent("section[id='choices'] p")
+      let result = await browser.getContent("section[id='results']")
+      
+      if (/Computer chose Scissors/.test(content)) {
+        expect(result).to.equal('It is a TIE!')
+      } else if (/Computer chose Paper/.test(content)) {
+        expect(result).to.equal('Player Wins!')
+      } else if (/Computer chose Rock/.test(content)) {
+        expect(result).to.equal('Computer Wins!')
+      }
+    });
   });
   
 });
