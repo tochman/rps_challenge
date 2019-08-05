@@ -41,15 +41,11 @@ context('RPS Game', () => {
     });
   
     it('call to action is displayed', async () => {
-      await sinon.spy
       let content = await browser.getContent("section[id='choices'] div[id='cta']")
       expect(content).to.contain('Make your choice')
     });
   });
   
-
-  // player inteacts with game UI
-
   describe('- player choices are displayed when', () => {
     it('clicking Rock', async () => {
       await browser.clickOnButton('button[id="rock"]')
@@ -89,7 +85,7 @@ context('RPS Game', () => {
       await browser.clickOnButton('button[id="scissors"]')
       let content = await browser.getContent("section[id='choices'] p")
       let result = await browser.getContent("section[id='results']")
-      
+
       if (/Computer chose Scissors/.test(content)) {
         expect(result).to.equal('It is a TIE!')
       } else if (/Computer chose Paper/.test(content)) {
